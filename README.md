@@ -1,1 +1,1 @@
-A collection of Vue 3 "projects" each contained with a separate branch
+This branch show cases a simple web form
