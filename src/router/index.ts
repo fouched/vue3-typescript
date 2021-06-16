@@ -13,6 +13,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about',
     name: 'About',
+    // lazy loading example
     component: () => import('../pages/About.vue')
   },
   {
