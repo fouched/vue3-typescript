@@ -1,6 +1,6 @@
 # 05-web-form
 
-This branch show cases a simple web form
+This branch shows how to use routes in Vue
 
 ## Project setup
 
