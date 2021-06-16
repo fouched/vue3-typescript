@@ -3,6 +3,7 @@ node_modules
 /dist
 
 # normally package-lock.json will be included, but with branching approach ignore it
+/package-lock.json
 package-lock.json
 
 # local env files
