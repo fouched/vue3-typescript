@@ -1,5 +1,24 @@
-A collection of Vue 3 "projects" each contained with a separate branch.  
-Check out a branch and do:  
-npm i  
-Note: all projects used Node version: 14.16.0  
+# simple-project-planner
 
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
