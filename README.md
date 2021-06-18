@@ -6,6 +6,11 @@ npm install
 ```
 
 ### Compiles and hot-reloads for development
+<strong>This branch uses JSON Server. You will need two terminals to run it.</strong>
+```
+npx json-server --watch ./data/db.json
+```
+<p>and</p>
 ```
 npm run serve
 ```
