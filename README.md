@@ -14,7 +14,7 @@ npm install
 npx json-server --watch ./data/db.json
 ```
 
-#### Then compile and hot-reload the Vue app
+#### In a separate terminal, compile and hot-reload the Vue app
 
 ```
 npm run serve
