@@ -8,7 +8,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 
-<strong>This branch uses JSON Server. You will need two terminals to run it.</strong>
+*This branch uses JSON Server. You will need two terminals to run it.*
 
 ```
 npx json-server --watch ./data/db.json
