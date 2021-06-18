@@ -6,15 +6,15 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Running the project / branch
 
-*This branch uses JSON Server. You will need two terminals to run it.*
+#### Start JSON Server
 
 ```
 npx json-server --watch ./data/db.json
 ```
 
-<p>and</p>
+#### Then compile and hot-reload the Vue app
 
 ```
 npm run serve
