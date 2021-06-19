@@ -2,11 +2,9 @@
 	<form @submit.prevent="handleSubmit">
 		<label>Title:</label>
 		<input type="text" v-model="project.title" required />
-		<label></label>
+		<label>Details:</label>
 		<textarea v-model="project.details" required></textarea>
 		<button>Update Project</button>
-		<label>Status:</label>
-		<p>{{ project.complete }}</p>
 	</form>
 </template>
 
@@ -32,12 +30,9 @@ export default defineComponent({
     fetch(this.uri + this.id)
       .then(res => res.json() as Promise<Project>)
       .then(data => {
-        console.log('project:' + JSON.stringify(data))
         this.project = data
       })
-      .catch(err => console.log(err))
-
-    
+      .catch(err => console.log(err))    
   },
   methods: {
     handleSubmit() {

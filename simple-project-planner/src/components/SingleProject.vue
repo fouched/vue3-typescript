@@ -4,7 +4,7 @@
 			<h3 @click="toggleDetails">{{ project.title }}</h3>
 			<div class="icons">
 				<router-link :to="{ name: 'EditProject', params: { id: project.id } }">
-					<span @click="toggleComplete" class="material-icons">edit</span>
+					<span class="material-icons">edit</span>
 				</router-link>
 				<span @click="deleteProject" class="material-icons">delete</span>
 				<span @click="toggleComplete" class="material-icons tick">done</span>

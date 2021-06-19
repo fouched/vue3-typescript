@@ -2,7 +2,7 @@
 	<div class="home">
 		<FilterNav @filterChange="currentFilter = $event" :currentFilter="currentFilter" />
 		<div v-if="projects.length">
-			<div v-for="project in projects" :key="project.id">
+			<div v-for="project in filteredProjects" :key="project.id">
 				<SingleProject :project="project" @delete="handleDelete" @complete="handleComplete" />
 			</div>
 		</div>
@@ -38,19 +38,29 @@ export default defineComponent({
 	},
 	methods: {
 		handleDelete(id: number) {
-			this.projects = this.projects.filter((project) => {
+			this.projects = this.projects.filter((project: Project) => {
 				return project.id !== id
 			})
 		},
 		handleComplete(id: number) {
-			let p = this.projects.find((project) => {
+			let p = this.projects.find((project: Project) => {
 				return project.id === id
 			})
       if (p) {
-        console.log("flipping complete")
         p.complete = !p.complete
       }
 		}
-	}
+	},
+  computed: {
+    filteredProjects(): Project[] {
+      if(this.currentFilter === 'completed') {
+        return this.projects.filter((project: Project) => project.complete)
+      }
+      if(this.currentFilter === 'ongoing') {
+        return this.projects.filter((project: Project) => !project.complete)
+      }      
+      return this.projects
+    }
+  }
 })
 </script>
