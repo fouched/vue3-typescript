@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<FilterNav @filterChange="currentFilter = $event" :currentFilter="currentFilter" />
 		<div v-if="projects.length">
 			<div v-for="project in projects" :key="project.id">
 				<SingleProject :project="project" @delete="handleDelete" @complete="handleComplete" />
@@ -15,16 +16,19 @@
 import { defineComponent, ref } from 'vue'
 import Project from '../types/Project'
 import SingleProject from '../components/SingleProject.vue'
+import FilterNav from '../components/FilterNav.vue'
 
 export default defineComponent({
 	name: 'Home',
 	setup() {
 		const projects = ref<Project[]>([])
+		const currentFilter = ref<string>('all')
 
-		return { projects }
+		return { projects, currentFilter }
 	},
 	components: {
-		SingleProject
+		SingleProject,
+		FilterNav
 	},
 	mounted() {
 		fetch('http://localhost:3000/projects')
@@ -42,9 +46,10 @@ export default defineComponent({
 			let p = this.projects.find((project) => {
 				return project.id === id
 			})
-			if (p) {
-				p.complete = !p.complete
-			}
+      if (p) {
+        console.log("flipping complete")
+        p.complete = !p.complete
+      }
 		}
 	}
 })

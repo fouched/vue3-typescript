@@ -1,11 +1,13 @@
 <template>
-	<div class="project" :class="{ complete: project.complete}">
+	<div class="project" :class="{ complete: project.complete }">
 		<div class="actions">
 			<h3 @click="toggleDetails">{{ project.title }}</h3>
 			<div class="icons">
-				<span class="material-icons">edit</span>
+				<router-link :to="{ name: 'EditProject', params: { id: project.id } }">
+					<span @click="toggleComplete" class="material-icons">edit</span>
+				</router-link>
 				<span @click="deleteProject" class="material-icons">delete</span>
-				<span class="material-icons tick" @click="toggleComplete">done</span>
+				<span @click="toggleComplete" class="material-icons tick">done</span>
 			</div>
 		</div>
 		<div v-if="showDetails" class="details">
@@ -27,7 +29,7 @@ export default defineComponent({
 	},
 	setup() {
 		const showDetails = ref<boolean>(false)
-    const uri = ref<string>('http://localhost:3000/projects/')
+		const uri = ref<string>('http://localhost:3000/projects/')
 
 		return { showDetails, uri }
 	},
@@ -35,20 +37,20 @@ export default defineComponent({
 		toggleDetails() {
 			this.showDetails = !this.showDetails
 		},
-    toggleComplete() {
-      fetch(this.uri + this.project.id, {
-          method: 'PATCH', 
-          headers: {'Content-Type': 'application/json'}, 
-          body: JSON.stringify({complete: !this.project.complete})
-        })
-        .then(() => this.$emit('complete', this.project.id))
-        .catch(err => console.log(err))
-    },
-    deleteProject() {
-      fetch(this.uri + this.project.id, {method: 'DELETE'})
-        .then(() => this.$emit('delete', this.project.id))
-        .catch(err => console.log(err))
-    }
+		toggleComplete() {
+			fetch(this.uri + this.project.id, {
+				method: 'PATCH',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ complete: !this.project.complete })
+			})
+				.then(() => this.$emit('complete', this.project.id))       
+				.catch((err) => console.log(err))
+		},
+		deleteProject() {
+			fetch(this.uri + this.project.id, { method: 'DELETE' })
+				.then(() => this.$emit('delete', this.project.id))
+				.catch((err) => console.log(err))
+		}
 	}
 })
 </script>
@@ -80,9 +82,9 @@ h3 {
 	color: #777;
 }
 .project.complete {
-  border-left: 4px solid #00ce89;
+	border-left: 4px solid #00ce89;
 }
 .project.complete .tick {
-  color: #00ce89;
+	color: #00ce89;
 }
 </style>

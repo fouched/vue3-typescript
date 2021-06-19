@@ -2,15 +2,15 @@
   "projects": [
     {
       "id": 1,
-      "title": "Create new homepage banner",
+      "title": "Create new homepage bannery",
       "details": "Lorem ipsum",
-      "complete": false
+      "complete": true
     },
     {
       "id": 2,
       "title": "Make marketing email",
       "details": "Lorem ipsum",
-      "complete": false
+      "complete": true
     }
   ]
 }

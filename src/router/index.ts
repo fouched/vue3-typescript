@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../pages/Home.vue'
 import AddProject from '../pages/projects/AddProject.vue'
+import EditProject from '../pages/projects/EditProject.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,6 +13,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/projects/add',
     name: 'AddProject',
     component: AddProject
+  },
+  {
+    path: '/projects/edit/:id',
+    name: 'EditProject',
+    component: EditProject,
+    props: true
   }
 ]
 
